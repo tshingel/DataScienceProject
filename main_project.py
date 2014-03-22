@@ -7,14 +7,14 @@ import operator
 from heapdict import heapdict
 #import time
 
+## number of highest frequency itms to display
 TOP_HIST = 10
-#FREQ_STEP = 1000
-#CUT_OFF = 6000 
+## y-axis step-size 
+FREQ_STEP = 1000
+## frequency threshold 
+CUT_OFF = 6000 
+## number of steps; for testing 
 #STOP = 90000
-
-FREQ_STEP = 500
-CUT_OFF = 5000 
-STOP = 90000
 
 def is_english_word(word, english_words):
     return word.lower() in english_words    
@@ -211,8 +211,8 @@ def main():
                 all_IDs_list.append(line[0])                                 
             i += 1
             ## a test to stop printing
-            if i > STOP:                                      
-                break   
+#            if i > STOP:                                      
+#                break   
 #     start_time = time.time()
     # hash table: key("like") -> value(list of users's IDs)  
     like_users = TransposeDic(user_likes)
