@@ -1,3 +1,5 @@
+## Helper Module 
+## Author: Tatiana Shingel Moody
 import csv
 STOP = 100
    
