@@ -1,3 +1,5 @@
+## Recommender System and Data Analysis API
+## Author: Tatiana Shingel Moody
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,10 +13,14 @@ from heapdict import heapdict
 TOP_HIST = 10
 ## y-axis step-size 
 FREQ_STEP = 1000
+## default value FREQ_STEP = 1
+#FREQ_STEP = 1
 ## frequency threshold 
-CUT_OFF = 6000 
-## number of steps; for testing 
-#STOP = 90000
+CUT_OFF = 6000
+## default value CUT_OFF = 0
+#CUT_OFF = 0 
+## number of lines to read from data file; for testing 
+#STOP = 100
 
 def is_english_word(word, english_words):
     return word.lower() in english_words    
@@ -213,7 +219,7 @@ def main():
             ## a test to stop printing
 #            if i > STOP:                                      
 #                break   
-#     start_time = time.time()
+    # start_time = time.time()
     # hash table: key("like") -> value(list of users's IDs)  
     like_users = TransposeDic(user_likes)
 #     print time.time() - start_time, "seconds"    
@@ -234,38 +240,38 @@ def main():
             fun_name = strings[0]
             list_name =strings[1]
             step2 = step1[1].strip(" \" ").split(',')
-            if list_name == "likes":
+            if list_name != "likes":
+                print "Wrong Input: list name cannot be recognized"
+            elif list_name == "likes":
                 ## parse likes, populate like_list with likes ids  
                 like_list = []
                 while not step2 == []:
                     like_string = step2.pop()
                     if like_string in all_likes:
                         like_list.append(all_likes[like_string])
-                            
-            ## recommend likes based on given set of likes 
-            if fun_name == "recommend-likes":    
-                if like_list != []:        
-                    sim_likes = recommend_likes(like_users, user_likes, like_list)
-                    print "Similar Likes:"
-                    for item, score in sim_likes[:5]:
-                        print "{0:10} ------> similarity score: {1:.2f}".format(all_likes_list[item], score)
+                
+                if like_list != []:                            
+                    ## recommend likes based on given set of likes 
+                    if fun_name == "recommend-likes":            
+                        sim_likes = recommend_likes(like_users, user_likes, like_list)
+                        print "Similar Likes:"
+                        for item, score in sim_likes[:5]:
+                            print "{0:10} ------> similarity score: {1:.2f}".format(all_likes_list[item], score)                                    
+                    ## recommend users based on given set of likes         
+                    elif fun_name == "recommend-users":
+                        sim_users = recommend_users(like_users, user_likes, like_list) 
+                        print "Similar Users:"
+                        for item, score in sim_users[:5]:
+                            print "User ID: {0} with similarity score {1:.2f}".format(item, score)
+                            print "All likes of this user:"
+                            for like_id in user_likes[item]:
+                                print "   {}".format(all_likes_list[like_id])  
+                    else:
+                        print "Wrong Input: function name cannot be recognized"
                 else:
-                    print "Bad input: cannot determine similar likes"
-                                    
-            ## recommend users based on given set of likes         
-            if fun_name == "recommend-users":
-                if like_list != []:
-                    sim_users = recommend_users(like_users, user_likes, like_list) 
-                    print "Similar Users:"
-                    for item, score in sim_users[:5]:
-                        print "User ID: {0} with similarity score {1:.2f}".format(item, score)
-                        print "All likes of this user:"
-                        for like_id in user_likes[item]:
-                            print "   {}".format(all_likes_list[like_id])  
-                else:
-                    print "Bad input: cannot determine similar users"
+                    print "Wrong Input: likes cannot be recognized"
         else:
-            print "Wrong Input."                
+            print "Wrong Input: unknown command"                
 
 if __name__ == '__main__':
     main()    
