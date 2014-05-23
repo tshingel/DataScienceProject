@@ -20,7 +20,7 @@ Command line input:
 
 The recommendation is implemented according to the following steps:
 
-- **Computing similar list of items for a given item I0:** collect all Users who like I_0 and
+- **Computing similar list of items for a given item I_0:** collect all Users who like I_0 and
 take the union of each User's item list. Let's call this list A. Next, discard I_0 from A. Return
 a hash table with keys as items from A and values as similarity scores between I_0 and every
 item in A.
