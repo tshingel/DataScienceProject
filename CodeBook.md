@@ -8,3 +8,13 @@ the data. All UIDs are stored as strings in a list. The position of each string 
 
 Command line input "Histogram" generates a histogram of Likes data. That is, a graph is produced that displays Likes on the x-axis and frequency count on the y-axis. At most ten most frequent Likes are displayed.
 
+## High-Frequency Pairs
+
+Command line input "Pairs Histogram" generates histogram of high-frequency Like pairs. The produced graph has Like pairs on the x-axis and frequency count on the y-axis.
+
+# Recommender Systems
+## Recommending Likes Based on the Given Set of Likes
+
+Command line input:
+      >recommend-likes likes="LikeString1,LikeString2,LikeString3"
+
