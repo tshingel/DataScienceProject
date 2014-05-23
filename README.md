@@ -8,7 +8,7 @@ https://s3.amazonaws.com/LikesData/likes.csv
 
 https://s3.amazonaws.com/LikesData/wordsEn.txt
 
-1. main_project.py is Python module containing all functions necessary to implement histogram plots and recommendations. main_project.py is built in the form of a simple API. This is a summary of the commands it accepts through standard input:
+1. main_project.py is a Python module which contains the functions necessary to implement histogram plots and recommendations. main_project.py is built in the form of a simple API. It accepts the following list of commands through standard input:
  - Histogram
  - Pairs Histogram
  - recommend-likes likes="LikeString1,LikeString2,etc..."
