@@ -33,7 +33,7 @@ for every element in A apply function **similarity_for** which returns a hash ta
 items together with their similarity scores. Generate a hash table having similar items as keys 
 and lists of similarity scores as values. Then aggregate each list of similarity scores by taking a mean.
 
-### Recommending UIDs based on the given set of Likes
+### Recommending UIDs Based on the Given Set of Likes
 
 Command line input:
       >recommend-users likes="LikeString1,LikeString2,LikeString3"
