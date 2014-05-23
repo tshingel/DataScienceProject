@@ -20,9 +20,9 @@ Command line input:
 
 The recommendation is implemented according to the following steps:
 
--**Computing similar list of items for a given item I0:** collect all Users who like I0 and
-take the union of each User's item list. Let's call this list A. Next, discard I0 from A. Return
-a hash table with keys as items from A and values as similarity scores between I0 and every
+-**Computing similar list of items for a given item I0:** collect all Users who like I_0 and
+take the union of each User's item list. Let's call this list A. Next, discard I_0 from A. Return
+a hash table with keys as items from A and values as similarity scores between I_0 and every
 item in A.
 
 -**Similarity score between two items:** look at two sets of all users who like each of the
@@ -35,4 +35,19 @@ similar items as keys and lists of similarity scores as values. Then aggregate e
 similarity scores by taking a mean.
 
 ### Recommending UIDs based on the given set of Likes
+
+Command line input:
+      >recommend-users likes="LikeString1,LikeString2,LikeString3"
+      
+The recommendation is implemented according to the following steps:
+
+- Collect all Users who like items from the given set of Likes and save them to a list of Users,
+say U_0. Take all those User's Likes and save them to a list of Like data, say B. For B,
+compute a similar list of Likes using the recommendation process 3.1. Assemble a new list of
+Likes containing B and similar Likes with high enough similarity scores. For this new list of
+Likes, collect all Users who like the items from the list and save them to a list, say U_1.
+
+- For every User in U_1, assemble a list of Users who like items from this User's item list.
+Compare this list of Users to U_0 using Jaccard index. Return a hash table with Users from
+U_1 as keys and similarity scores as values.
 
