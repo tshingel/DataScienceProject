@@ -1,7 +1,6 @@
 DataScienceProject
 ==================
-
-Please see project.bdf for details.
+## Recommender System
 
 To run main_project.py, download and save the following files to the same directory: 
 
