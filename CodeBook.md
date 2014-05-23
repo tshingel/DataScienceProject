@@ -20,4 +20,19 @@ Command line input:
 
 The recommendation is implemented according to the following steps:
 
--**Computing similar list of items for a given item I_0:**
+-**Computing similar list of items for a given item I0:** collect all Users who like I0 and
+take the union of each User's item list. Let's call this list A. Next, discard I0 from A. Return
+a hash table with keys as items from A and values as similarity scores between I0 and every
+item in A.
+
+-**Similarity score between two items:** look at two sets of all users who like each of the
+items. Compute Jaccard index between these two sets.
+
+-**Computing similar list of items for a given list of items:** given the list of items A,
+for every element in A apply function **similarity_for** which returns a hash table of similar
+items together with their similarity scores. Generate a Python dictionary having
+similar items as keys and lists of similarity scores as values. Then aggregate each list of
+similarity scores by taking a mean.
+
+### Recommending UIDs based on the given set of Likes
+
