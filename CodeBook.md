@@ -10,7 +10,7 @@ Command line input "Histogram" generates a histogram of Likes data. That is, a g
 
 ### High-Frequency Pairs
 
-Command line input "Pairs Histogram" generates histogram of high-frequency Like pairs. The produced graph has Like pairs on the x-axis and frequency count on the y-axis.
+Command line input "Pairs Histogram" generates a histogram of high-frequency Like pairs. The produced graph has Like pairs on the x-axis and frequency count on the y-axis.
 
 ## Recommender Systems
 ### Recommending Likes Based on the Given Set of Likes
