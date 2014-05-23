@@ -42,9 +42,9 @@ The recommendation is implemented according to the following steps:
 
 - Collect all Users who like items from the given set of Likes and save them to a list of Users,
 say U_0. Take all those User's Likes and save them to a list of Like data, say B. For B,
-compute a similar list of Likes using the recommendation process 3.1. Assemble a new list of
-Likes containing B and similar Likes with high enough similarity scores. For this new list of
-Likes, collect all Users who like the items from the list and save them to a list, say U_1.
+compute a similar list of Likes using the recommendation process explained in the previous paragraph. 
+Assemble a new list of Likes containing B and similar Likes with high enough similarity scores. 
+For this new list of Likes, collect all Users who like the items from the list and save them to a list, say U_1.
 
 - For every User in U_1, assemble a list of Users who like items from this User's item list.
 Compare this list of Users to U_0 using Jaccard index. Return a hash table with Users from
