@@ -18,3 +18,6 @@ Command line input "Pairs Histogram" generates histogram of high-frequency Like 
 Command line input:
       >recommend-likes likes="LikeString1,LikeString2,LikeString3"
 
+The recommendation is implemented according to the following steps:
+
+-**Computing similar list of items for a given item I_0:**
