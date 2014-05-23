@@ -30,9 +30,8 @@ items. Compute Jaccard index between these two sets.
 
 - **Computing similar list of items for a given list of items:** given the list of items A,
 for every element in A apply function **similarity_for** which returns a hash table of similar
-items together with their similarity scores. Generate a Python dictionary having
-similar items as keys and lists of similarity scores as values. Then aggregate each list of
-similarity scores by taking a mean.
+items together with their similarity scores. Generate a hash table having similar items as keys 
+and lists of similarity scores as values. Then aggregate each list of similarity scores by taking a mean.
 
 ### Recommending UIDs based on the given set of Likes
 
